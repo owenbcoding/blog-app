@@ -8,11 +8,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view ('index');
+        $posts = Post::whereNotNull('published_at')->latest()->paginate(6);
+        return view('index', compact('posts'));
     }
 
     public function show(Post $post)
     {
-     
+        return view('show', compact('post'));
     }
 }

@@ -20,6 +20,7 @@ class PostFactory extends Factory
         return [
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,
+            'thumbnail' => null,
             'excerpt' => implode($this->faker->paragraphs(2)),
             'body' => implode($this->faker->paragraphs(6)),
         ];

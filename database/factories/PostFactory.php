@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
 class PostFactory extends Factory
 {
@@ -14,16 +15,13 @@ class PostFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'user_id' => 1,
+            'user_id' => User::factory(),
             'title' => $this->faker->sentence,
-            'thumbnail' => null,
-            'slug' => $this->faker->slug,
-            'excerpt' => $this->faker->paragraph,
-            'body' => $this->faker->paragraph(),
-            'published_at' => $this->faker->optional()->dateTimeBetween("-1 month", "+1 month")
+            'excerpt' => implode($this->faker->paragraphs(2)),
+            'body' => implode($this->faker->paragraphs(6)),
         ];
     }
 }

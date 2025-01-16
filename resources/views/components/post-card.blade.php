@@ -7,8 +7,7 @@
             <img src="{{ asset('storage/' . $post->thumbnail) }}"
                 alt="blog-image" class="aspect-[16/9] rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
             @else
-            <img src="./images/book.jpg"
-                alt="blog-image" class="aspect-[16/9] w-90 h-72 rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                <x-post-image :seed="$post->id" />
             @endif
             <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
         </div>

@@ -7,7 +7,7 @@
             <img src="{{ asset('storage/' . $post->thumbnail) }}"
                 alt="blog-image" class="aspect-[16/9] rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
             @else
-                <x-post-image :seed="$post->id" />
+                <x-post-card-image :seed="$post->id" />
             @endif
             <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
         </div>
@@ -31,10 +31,11 @@
                 <p class="mt-5 text-sm leading-6 text-gray-600 line-clamp-3">{{ $post->excerpt }}</p>
             </div>
             <div class="relative mt-8 flex items-center gap-x-4">
-                <img src="../images/road-icon-L.png" alt="" class="h-10 w-10 rounded-full">
+                {{-- <img src="../images/" alt="" class="h-10 w-10"> --}}
+                <x-carbon-blog class="h-8 w-10 sm:h-10"/>
                 <div class="text-sm leading-6">
                     <p class="font-semibold text-gray-900">
-                        <p class="text-gray-600">By Mark</p>
+                        <p class="text-gray-600">blog-app</p>
                     </p>
                 </div>
             </div> 

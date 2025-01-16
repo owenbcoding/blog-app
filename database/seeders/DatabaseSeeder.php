@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use \App\Models\Tag;
 use App\Models\User;
 use \App\Models\Post;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\PostSeeder;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,12 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        Post::factory(3)->create();
+        
+        // Post::factory(6)->create();
+        $this->call(PostSeeder::class);
     }
 }

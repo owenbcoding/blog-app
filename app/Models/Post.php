@@ -5,24 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class post extends Model
+class Post extends Model
 {
     use HasFactory;
 
-    /**
+     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'user_id',
-        'slug',
-        'title',
-        'excerpt',
-        'thumbnail',
-        'body',
-        'published_at',
-    ];
+    protected $guarded = [];
 
     public function getRouteKeyName()
     {
@@ -35,7 +27,7 @@ class post extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        
+     
     ];
 
     /**

@@ -8,7 +8,7 @@
     <meta description="A simple Blog-App">
     <link rel="icon" type="icon/png" href="../images/.png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>@yield('title', 'Blog-App | Home')</title>
+    <title>@yield('Blog-App')</title>
 </head>
 
 <body> 
@@ -42,9 +42,9 @@
             <nav class="hidden space-x-10 md:flex">
                 <a href="{{ route('home') }}" class="text-base font-medium text-gray-500 hover:text-gray-300">Home</a>
 
-                <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-300">About</a>
+                <a href="{{ route('about') }}" class="text-base font-medium text-gray-500 hover:text-gray-300">About</a>
 
-                <a href="#"
+                <a href="{{ route('contact') }}"
                     class="text-base font-medium text-gray-500 hover:text-gray-300">Contact</a>
             </nav>
         </div>
@@ -63,7 +63,7 @@
                             <div class="ml-4 text-base font-medium text-gray-900">Home</div>
                         </a>
 
-                        <a href="#" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-200">
+                        <a href="{{ route('about') }}" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-200">
                             <div
                                 class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md ">
                                 
@@ -72,7 +72,7 @@
                             <div class="ml-4 text-base font-medium text-gray-900">About</div>
                         </a>
 
-                        <a href="#" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-200">
+                        <a href="{{ route('contact') }}" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-200">
                             <div
                                 class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md">
                                 

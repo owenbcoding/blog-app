@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -14,6 +16,6 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        // return view('show', compact('post'));
+        return view('show', compact('post'));
     }
 }

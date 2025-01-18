@@ -13,5 +13,6 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 
 require __DIR__.'/auth.php';

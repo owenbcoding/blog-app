@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Blade::component('posts', 'posts');
+        Blade::component('layouts.app', 'layouts.app');
+        Blade::component('components.posts', 'posts');
+        Blade::component('components.post-card', 'post-card');
     }
 }

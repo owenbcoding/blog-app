@@ -88,8 +88,8 @@
     <main>
         {{ $slot }}
     </main>
-    <footer class="mb-10">
-        <div class="mx-auto max-w-7xl overflow-hidden">
+    <footer>
+        <div class="mx-auto">
             <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2025 Blog-App. All rights
                 reserved.</p>
         </div>

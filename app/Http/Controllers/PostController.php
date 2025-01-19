@@ -13,7 +13,7 @@ class PostController extends Controller
     {
         // $posts = Post::where('published_at')->latest()->paginate(6);
         // $posts = Post::where("published_at", "!=", null)->latest()->with('tags')->paginate(6);
-        return view('index', [
+        return view('posts.index', [
             'posts' => Post::where("published_at")->latest()->paginate(6)
         ]);
         // return view('index', compact('posts'));

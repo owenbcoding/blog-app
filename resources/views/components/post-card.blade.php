@@ -23,7 +23,8 @@
             </div>
             <div class="group relative">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <a href="{{ route('posts.show', $post->slug) }}">
+                    {{-- {{ route('posts.show', $post->slug) }} --}}
+                    <a href="/posts/{{ $post->slug }}">
                         <span class="absolute inset-0"></span>
                         {{ $post->title }}
                     </a>
@@ -31,11 +32,10 @@
                 <p class="mt-5 text-sm leading-6 text-gray-600 line-clamp-3">{{ $post->excerpt }}</p>
             </div>
             <div class="relative mt-8 flex items-center gap-x-4">
-                {{-- <img src="../images/" alt="" class="h-10 w-10"> --}}
                 <x-carbon-blog class="h-8 w-10 sm:h-10"/>
                 <div class="text-sm leading-6">
                     <p class="font-semibold text-gray-900">
-                        {{-- Author or other details --}}
+                       By Blog App
                     </p>
                 </div>
             </div>

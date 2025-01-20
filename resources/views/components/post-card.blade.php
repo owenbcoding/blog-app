@@ -16,8 +16,7 @@
                 <time class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
                 @if ($post->tags && $post->tags->count())
                     @foreach ($post->tags as $tag)
-                        <a href="/categories/{{ $tag->name }}"
-                            class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-gray-600 hover:bg-gray-100">{{ $tag->name }}</a>
+                        <p class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-gray-600 hover:bg-gray-100">{{ $tag->name }}</p>
                     @endforeach
                 @endif
             </div>

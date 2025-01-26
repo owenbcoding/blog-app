@@ -20,9 +20,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-// Route::get('/admin', function (){
-//     return view('admin.index');
-// })->name('admin.index')->middleware("auth");
+Route::get('/admin', function (){
+    return view('layouts.admin');
+})->name('layouts.admin')->middleware("auth");
 
 Route::get('/dashboard', function () { 
     return view('dashboard');

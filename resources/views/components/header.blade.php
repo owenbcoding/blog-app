@@ -11,7 +11,7 @@
                 </div>
                 <div class="relative py-16 px-6 sm:py-24 lg:py-32 lg:px-8">
                     <h1 class="text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                        <span class="block font-medium text-gray-200">Blog app</span>
+                        <span class="block font-medium text-gray-200">Blog-app</span>
                         <div class="absolute inset-0 bg-gray-200 mix-blend-multiply"></div>
                     </h1>
                 </div>

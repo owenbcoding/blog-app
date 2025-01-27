@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -26,9 +26,7 @@ class Post extends Model
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-     
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast.
@@ -36,7 +34,7 @@ class Post extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'created_at' => 'datetime' , 
+        'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'published_at' => 'datetime'
     ];
@@ -44,5 +42,10 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

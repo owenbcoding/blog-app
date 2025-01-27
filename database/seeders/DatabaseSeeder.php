@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PostSeeder::class);
         $this->call(AdminSeeder::class);
+        $this->call(SeedPostTagTable::class);
     }
 }

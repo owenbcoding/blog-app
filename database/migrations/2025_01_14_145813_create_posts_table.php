@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('excerpt');
             $table->longText('body')->nullable();
+            $table->string('url');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

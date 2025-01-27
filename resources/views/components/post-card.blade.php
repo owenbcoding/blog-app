@@ -14,12 +14,7 @@
         <div class="max-w-xl">
             <div class="mt-8 flex items-center gap-x-4 text-xs">
                 <time class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
-                {{-- @if ($post->tags && $post->tags->count())
-                    @foreach ($tags as $tag)
-                    @endforeach
-                @endif --}}
-                {{-- {{ $tags->first()->name }} --}}
-                @foreach ($post->tags ?? [] as $tag)
+                @foreach ($post->tags as $tag)
                     <x-tag :tag="$tag" size="small" />
                 @endforeach
             </div>

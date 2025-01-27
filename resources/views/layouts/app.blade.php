@@ -18,7 +18,7 @@
             <div class="flex justify-start lg:w-0 lg:flex-1">
                 <a class="flex" href="{{ route('home') }}">
                     <x-carbon-blog class="h-8 w-10 sm:h-10"/>
-                        <p class="mt-2 ml-5 ">Blog site</p>
+                    <p class="mt-2 ml-5">Blog site</p>
                 </a>
             </div>
             <div class="-my-2 -mr-2 md:hidden">
@@ -90,7 +90,7 @@
     </main>
     <footer>
         <div class="mx-auto max-w-7xl overflow-hidden">
-            <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2025 Blog-App. All rights
+            <p class="m-20 text-center text-xs leading-5 text-gray-500">&copy; 2025 Blog-App. All rights
                 reserved.</p>
         </div>
     </footer>

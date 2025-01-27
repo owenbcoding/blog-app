@@ -32,7 +32,7 @@
                 <x-carbon-blog class="h-8 w-10 sm:h-10" />
                 <div class="text-sm leading-6">
                     <p class="font-semibold text-gray-900">
-                        By Blog App
+                        By Blog-app
                     </p>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 @props(['post', 'tags'])
 
 <div class="mx-auto px-6 lg:px-8">
-    <article class="flex flex-col items-start justify-between mt-20">
+    <article class="flex flex-col items-start justify-between mt-10">
         <div class="relative">
             @if ($post->thumbnail)
                 <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="blog-image"
@@ -21,8 +21,7 @@
             <div class="group relative">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                     {{-- {{ route('posts.show', $post->slug) }} --}}
-                    <a href="/posts/{{ $post->slug }}">
-                        <span class="absolute inset-0"></span>
+                    <a href="{{ route('posts.show', ['post' => $post->id]) }}">
                         {{ $post->title }}
                     </a>
                 </h3>

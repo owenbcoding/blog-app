@@ -16,10 +16,10 @@ class Post extends Model
      */
     protected $guarded = [];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -21,7 +21,7 @@
             <div class="group relative">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                     {{-- {{ route('posts.show', $post->slug) }} --}}
-                    <a href="{{ route('posts.show', ['post' => $post->id]) }}">
+                    <a href="{{ route('posts.show', ['post' => $post->slug]) }}">
                         {{ $post->title }}
                     </a>
                 </h3>

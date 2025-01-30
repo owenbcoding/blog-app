@@ -31,6 +31,15 @@ class PostController extends Controller
         // return view('index', compact('posts'));
     }
 
+    public function store(Request $request)
+    {
+        $post = Post::create($request->all());
+        $post->title = $request->input('title');
+        $post->slug = Str::slug($request->input('title')); // Generate the slug manually
+        $post->save();
+        return redirect()->route('posts.show', ['post' => $post->slug]);
+    }
+
 
     public function show(Post $post)
     {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -20,6 +21,20 @@ class Post extends Model
     // {
     //     return 'slug';
     // }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function (Post $post) {
+            $post->slug = Str::slug($post->title);
+        });
+    }
 
     /**
      * The attributes that should be hidden for serialization.

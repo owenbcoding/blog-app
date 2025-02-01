@@ -53,7 +53,7 @@
             -->
         <div class="relative inset-x-0 top-0 z-30 origin-top-right transform p-2 transition">
             <div class="divide-y-2">
-                <div x-show="open" class="mt-6">
+                <div x-show="open" class="px-5">
                     <nav class="grid grid-cols-1 gap-7">
                         <a href="{{ route('home') }}" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-200">
                             <div

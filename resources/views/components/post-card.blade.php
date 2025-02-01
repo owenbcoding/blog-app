@@ -1,6 +1,6 @@
 @props(['post', 'tags'])
 
-<div class="mx-auto px-6 lg:px-8">
+<div class="mx-auto w-full max-w-2xl px-6 lg:px-8">
     <article class="flex flex-col items-start justify-between mt-10">
         <div class="relative">
             @if ($post->thumbnail)
@@ -11,7 +11,7 @@
             @endif
             <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
         </div>
-        <div class="max-w-xl">
+        <div class="mx-auto w-full max-w-4xl">
             <div class="mt-8 flex items-center gap-x-4 text-xs">
                 <time class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
                 @foreach ($post->tags as $tag)
@@ -20,7 +20,6 @@
             </div>
             <div class="group relative">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    {{-- {{ route('posts.show', $post->slug) }} --}}
                     <a href="{{ route('posts.show', ['post' => $post->slug]) }}">
                         {{ $post->title }}
                     </a>

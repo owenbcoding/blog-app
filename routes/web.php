@@ -21,7 +21,7 @@ Route::get('/contact', function () {
 
 Route::get('/admin', function (){
     return view('layouts.admin');
-})->name('layouts.admin')->middleware("auth");
+})->middleware("auth")->name('layouts.admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

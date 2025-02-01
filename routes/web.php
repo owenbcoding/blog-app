@@ -19,13 +19,13 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/admin', function (){
-    return view('layouts.admin');
-})->middleware("auth")->name('layouts.admin');
+Route::get('/admin', function () {
+    return view('admin.index');
+})->name('admin.index')->middleware(['auth', 'verified']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
  
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

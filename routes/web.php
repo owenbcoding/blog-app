@@ -21,11 +21,11 @@ Route::get('/contact', function () {
 
 Route::get('/admin', function () {
     return view('admin.index');
-})->name('admin.index')->middleware(['auth', 'verified']);
+})->name('admin')->middleware(['auth', 'verified']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
  
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

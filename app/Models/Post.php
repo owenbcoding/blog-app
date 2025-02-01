@@ -17,11 +17,6 @@ class Post extends Model
      */
     protected $guarded = [];
 
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
-
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = Str::slug($value);

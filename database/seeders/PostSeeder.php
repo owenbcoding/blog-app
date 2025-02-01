@@ -16,6 +16,6 @@ class PostSeeder extends Seeder
     {
         $tags = Tag::factory(3)->create();
 
-        Post::factory(3)->create();
+        // Post::factory(3)->create(['user_id' => $user->id]);
     }
 }

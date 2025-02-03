@@ -10,15 +10,12 @@
             class="group relative rounded-tl-lg rounded-tr-lg bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-none">
             <div>
                 <span class="inline-flex rounded-lg p-3  ring-white">
-                    {{-- <x-heroicon-o-folder class="h-10 w-10" /> --}}
                     <x-carbon-blog class="h-8 w-10 sm:h-10"/>
                 </span>
             </div>
             <div class="ml-4">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    {{-- {{ route('admin.projects.create') }} --}}
-                    <a href="" class="focus:outline-none">
-                        <!-- Extend touch target to entire panel -->
+                    <a href="{{ route('admin.posts.create') }}" class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Post Blog
                     </a>

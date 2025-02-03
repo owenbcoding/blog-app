@@ -36,8 +36,8 @@
         <div
             class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
             <div>
-                <span class="inline-flex rounded-lg p-3  ring-white">
-                    {{-- <x-iconoir-google-docs class=" h-10 w-10" /> --}}
+                <span class="inline-flex rounded-lg p-3 ring-white">
+                    <x-far-list-alt class="h-8 w-10 sm:h-10"/>
                 </span>
             </div>
             <div class="ml-4">
@@ -59,12 +59,5 @@
                 </svg>
             </span>
         </div>
-        <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-            <div>
-                <span class="inline-flex rounded-lg p-3  ring-white">
-                    {{-- <x-clarity-contract-line class=" h-10 w-10" /> --}}
-                </span>
-            </div>
-        </div>
-            
+    </div>
 </x-layouts.admin>

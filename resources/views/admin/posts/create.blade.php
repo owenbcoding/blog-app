@@ -1,4 +1,4 @@
-<x-layout.admin> 
+<x-layouts.admin>
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <header>
             <div class="px-4 py-4 sm:px-6 lg:px-8">
@@ -7,12 +7,19 @@
         </header>
         <div class="px-8 mx-w-4xl mx-auto mt-10">
             <form method="POST" action="" enctype="multipart/form-data">
-                <x-form.input name="title" label="Title" />
+                @csrf
+                <label>Title</label>
+                <x-form.input name="title" />
+                <label>Image</label>
                 <x-form.input name="thumbnail" type="file" />
-                <x-form.input name="tags" label="Tags" />
-                <x-form.input name="excerpt" label="Excerpt" />
-                <x-form.textarea name="body" label="Body" />
+                <label>Tag</label>
+                <x-form.input name="tag" />
+                <label>Excerpt</label>
+                <x-form.input name="excerpt" />
+                <label>Body</label>
+                <x-form.textarea name="body" />
+                <x-form.button>Create Blog</x-form.button>
             </form>
         </div>
     </div>
-</x-layout.admin>
+</x-layouts.admin>

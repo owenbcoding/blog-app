@@ -1,6 +1,6 @@
 # Project Title
 
-Simple overview of use/purpose.
+This is a demo blog project I made while learning laravel 11
 
 ## Description
 

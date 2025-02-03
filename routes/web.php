@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\AdminPostController;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
@@ -22,6 +23,12 @@ Route::get('/contact', function () {
 Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin')->middleware(['auth', 'verified']);
+
+// Route::get('/admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index')->middleware("auth");
+
+Route::get('/admin/posts/create', function () {
+    return view('admin.posts.create');
+})->name('admin.posts.create')->middleware("auth");
 
 Route::get('/dashboard', function () {
     return view('dashboard');

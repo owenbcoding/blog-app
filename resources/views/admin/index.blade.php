@@ -39,7 +39,7 @@
             </div>
             <div class="ml-4">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    {{-- {{ route('admin.posts.create') }} --}}
+                    {{-- {{ route('admin.posts.index') }} --}}
                     <a href="" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>

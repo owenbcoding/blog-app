@@ -24,15 +24,17 @@ Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin')->middleware(['auth', 'verified']);
 
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
 // Route::get('/admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index')->middleware("auth");
 
 Route::get('/admin/posts/create', function () {
     return view('admin.posts.create');
 })->name('admin.posts.create')->middleware("auth");
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
  
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

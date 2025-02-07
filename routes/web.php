@@ -26,20 +26,10 @@ Route::get('/admin', function () {
 
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
-// Route::get('/admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index')->middleware("auth");
+Route::get('/admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index')->middleware("auth");
 
 Route::get('/admin/posts/create', function () {
     return view('admin.posts.create');
 })->name('admin.posts.create')->middleware("auth");
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
- 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 require __DIR__.'/auth.php';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class AdminPostController extends Controller
 {
@@ -11,7 +12,9 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        return view ('admin.index');
+        return view('admin.posts.index', [
+            'posts' => Post::paginate()
+        ]);
     }
 
     /**
@@ -26,14 +29,6 @@ class AdminPostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
     {
         //
     }

@@ -8,12 +8,12 @@
         <div class="px-8 mx-w-4xl mx-auto mt-10">
             <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
-                <label>Title</label>
-                <x-form.input name="title" />
                 <label>Image</label>
                 <x-form.input name="thumbnail" type="file" />
                 <label>Tag</label>
                 <x-form.input name="tag" />
+                <label>Title</label>
+                <x-form.input name="title" />
                 <label>Excerpt</label>
                 <x-form.input name="excerpt" />
                 <label>Body</label>

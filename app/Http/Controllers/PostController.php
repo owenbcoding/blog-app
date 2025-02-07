@@ -14,21 +14,13 @@ class PostController extends Controller
     //     $posts = Post::with('tags')->whereNotNull('published_at')->latest()->paginate(6);
     //     return view('posts.index', compact('posts'));
     // }
-
-    // public function show(Post $post)
-    // {
-    //     $post->load('tags');
-    //     return view('show', compact('post'));
-    // }
     public function index()
     {
-        // $posts = Post::where('published_at')->latest()->paginate(6);
         // $posts = Post::where("published_at", "!=", null)->latest()->with('tags')->paginate(6);
         return view('posts.index', [
             'posts' => Post::where("published_at")->latest()->with('tags')->paginate(6),
             'tags' => Tag::all(),
         ]);
-        // return view('index', compact('posts'));
     }
 
     public function store(Request $request)

@@ -6,7 +6,7 @@
             </div>
         </header>
         <div class="px-8 mx-w-4xl mx-auto mt-10">
-            <form method="POST" action="{{ route('admin.posts.store')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data">
                 @csrf
                 <label>Title</label>
                 <x-form.input name="title" />
@@ -18,7 +18,7 @@
                 <x-form.input name="excerpt" />
                 <label>Body</label>
                 <x-form.textarea name="body" />
-                <x-form.button>Create Blog</x-form.button>
+                <x-form.button type="submit">Create Blog</x-form.button>
             </form>
         </div>
     </div>

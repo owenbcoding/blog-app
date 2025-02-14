@@ -5,7 +5,7 @@
         <div class="relative">
             @if ($post->thumbnail)
                 <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="blog-image"
-                    class="aspect-[16/9] rounded-full bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                    class="aspect-[16/9] rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
             @else
                 <x-post-card-image :seed="$post->id" />
             @endif

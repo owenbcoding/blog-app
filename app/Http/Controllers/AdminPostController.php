@@ -39,7 +39,7 @@ class AdminPostController extends Controller
         $validateData = $request->validate([
             'title' => 'required|string|max:150',
             'thumbnail' => 'required|image',
-            'tags' => 'required|string',
+            'tag' => 'required|string',
             'excerpt' => 'required|string|max:150',
             'body' => 'required|string|max:4096',
         ]);
@@ -49,15 +49,8 @@ class AdminPostController extends Controller
         $validateData['slug'] = Str::slug($validateData['title']);
         $validateData['user_id'] = auth()->user()->id;
         $validateData['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
-        // $post = Auth::user()->posts()->create($validateData); 
         
         $post = Post::create($validateData);
-
-        // if ($validateData['tags'] ?? false) {
-        //     foreach (explode(',', $validateData['tags']) as $tag) {
-        //         $post->tag($tag);
-        //     }
-        // }
         
         return redirect()->route('admin.posts.index');
     }

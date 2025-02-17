@@ -13,5 +13,4 @@ class TagController extends Controller
         $tags = $post->tags;
         return view('post-card', ['post' => $post, 'tags' => $tags]);
     }
-    // return view('show', 'posts' => $tag->posts);
 }

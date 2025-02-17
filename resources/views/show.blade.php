@@ -7,7 +7,7 @@
             <div class="mt-5 mb-5">
                 @if ($post->tags && $post->tags->count())
                     @foreach ($post->tags as $tag)
-                    <x-tag :tag="$tag" size="small" />
+                        <x-tag :tag="$tag" size="small" />
                     @endforeach
                 @endif
             </div>

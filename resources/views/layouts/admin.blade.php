@@ -29,7 +29,7 @@
                 <a href="{{ route('admin') }}" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
                 <a href="{{ route('admin.posts.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Post-managment</a>
                 <a href="{{ route('admin.posts.create') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Create-Post</a>
-                <div class="rounded-md px-3 px-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                <div class="rounded-md px-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
                   <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit">Log Out</button>

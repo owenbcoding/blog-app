@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('tag')->nullable();
             $table->text('excerpt');
             $table->longText('body')->nullable();
-            $table->string('url')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

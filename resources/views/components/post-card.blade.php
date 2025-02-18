@@ -12,8 +12,7 @@
             <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
         </div>
         <div class="mx-auto w-full max-w-4xl">
-            <div class="mt-8 flex items-center gap-x-4 text-xs">
-                <time class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
+            <div class="mt-4 flex items-center gap-x-4 text-xs">
                 @foreach ($post->tags as $tag)
                     <x-tag :tag="$tag" size="small" />
                 @endforeach
@@ -33,6 +32,7 @@
                         Blog-app
                     </p>
                 </div>
+                <time class="text-gray-500 ml-24">{{ $post->created_at->diffForHumans() }}</time>
             </div>
         </div>
     </article>

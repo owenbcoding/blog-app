@@ -28,6 +28,8 @@ Route::get('/admin', function () {
 
 Route::post('/admin/posts', [AdminPostController::class, 'store'])->name('admin.posts.store')->middleware("auth");
 
+Route::delete('/admin/posts/{post}/delete', [AdminPostController::class, 'destroy'])->name('admin.posts.delete')->middleware("auth");
+
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/admin/posts/create', function () {

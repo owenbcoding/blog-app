@@ -13,7 +13,7 @@
                 <label>Image</label>
                 <x-form.input name="thumbnail" type="file" />
                 <label>Tag</label>
-                <x-form.input name="tag" />
+                <x-form.input label="Tags (comma separated)" placeholder="news, politics, education" name="tag" />
                 <label>Excerpt</label>
                 <x-form.input name="excerpt" />
                 <label>Body</label>

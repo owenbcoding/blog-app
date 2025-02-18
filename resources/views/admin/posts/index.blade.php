@@ -53,17 +53,15 @@
                                         </td>
                                         <td
                                             class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                            {{-- {{ route('admin.posts.delete', ['post' => $post->slug]) }} --}}
                                             <form method="POST"
-                                                action="#">
+                                                action="{{ route('admin.posts.delete', $post->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="text-sm text-gray-400">Delete</button>
+                                                <button type="submit" class="text-sm text-gray-400">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
                                 @endforeach
-                                <!-- More people... -->
                             </tbody>
                         </table>
                     </div>

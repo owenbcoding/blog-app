@@ -8,9 +8,8 @@ use App\Models\Post;
 
 class TagController extends Controller
 {
-    public function __invoke(Post $post)
+    public function __invoke(Tag $tag)
     {
-        $tags = $post->tags;
-        return view('post-card', ['post' => $post, 'tags' => $tags]);
+        return view('show', ['posts' => $tag->posts]);
     }
 }

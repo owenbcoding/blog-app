@@ -28,7 +28,9 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        return view ('admin.posts.create');
+        return view('admin.posts.create', [
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
@@ -37,21 +39,28 @@ class AdminPostController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'title' => 'required|string|max:150',
-            'thumbnail' => 'required|image',
-            'tag' => 'required|string',
-            'excerpt' => 'required|string|max:150',
-            'body' => 'required|string|max:4096',
+            'title' => [ 'required' ],
+            'thumbnail' =>  [ 'required' ],
+            'excerpt' => [ 'required' ],
+            'body' => [ 'required' ],
+            'tag' => [ 'nullable' ],
         ]);
-        
+
         // dd(request()->all());
-        
-        $validateData['slug'] = Str::slug($validateData['title']);
+
         $validateData['user_id'] = auth()->user()->id;
         $validateData['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
-        
+
         $post = Post::create($validateData);
-        
+
+        if ($request->has('tag')) {
+            $tags = explode(',', $request->input('tag'));
+            if(count($tags) <= 4) { 
+                $tagIds = Tag::whereIn('name', $tags)->pluck('id');
+                $post->tags()->attach($tagIds);
+            }
+        }    
+
         return redirect()->route('admin.posts.index');
     }
 
@@ -60,13 +69,16 @@ class AdminPostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', ['post' => $post]);
+        return view('admin.posts.edit', [
+            'post' => $post,
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Post $post)
     {
         //
     }
@@ -74,8 +86,10 @@ class AdminPostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return back()->with('success', 'Post Deleted');
     }
 }

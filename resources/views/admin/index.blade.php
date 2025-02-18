@@ -1,8 +1,8 @@
 <x-layouts.admin>
     <header>
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        {{-- <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold tracking-tight text-gray-600 text-center">Quick Links</h1>
-        </div>
+        </div> --}}
     </header>
     <div
         class="divide-y divide-gray-200 overflow-hidden rounded-lg shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0 mt-10">

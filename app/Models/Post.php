@@ -18,6 +18,13 @@ class Post extends Model
      */
     protected $guarded = [];
 
+    public function tag(string $name)
+    {
+        $tag = Tag::firstOrCreate(['name' => $name]);
+
+        $this->tags()->attach($tag);
+    }
+
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = Str::slug($value);

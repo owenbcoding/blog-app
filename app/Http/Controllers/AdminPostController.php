@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use app\Models\User;
-use Illuminate\Support\Facades\Storage;
+
 
 class AdminPostController extends Controller
 {
@@ -39,29 +36,30 @@ class AdminPostController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'title' => [ 'required' ],
-            'thumbnail' =>  [ 'required' ],
-            'excerpt' => [ 'required' ],
-            'body' => [ 'required' ],
-            'tag' => [ 'nullable' ],
+            'title' => 'required|string|max:255',
+            'thumbnail' => 'nullable|image',
+            'excerpt' => 'required|string',
+            'body' => 'required|string',
+            'tags' => 'nullable|array',
         ]);
+
+        $post = Post::create($validateData);
+        $post->tags()->sync($request->input('tags', []));
 
         // dd(request()->all());
 
         $validateData['user_id'] = auth()->user()->id;
         $validateData['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
 
-        $post = Post::create($validateData);
+        $post = Post::create(Arr::except($validateData, 'tags'));
 
-        if ($request->has('tag')) {
-            $tags = explode(',', $request->input('tag'));
-            if(count($tags) <= 4) { 
-                $tagIds = Tag::whereIn('name', $tags)->pluck('id');
-                $post->tags()->attach($tagIds);
+        if ($validateData['tags'] ?? false) {
+            foreach (explode(',', $validateData['tags']) as $tag) {
+                $post->tags($tag);
             }
-        }    
+        }
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }
 
     /**

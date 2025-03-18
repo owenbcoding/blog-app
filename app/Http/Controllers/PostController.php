@@ -16,6 +16,8 @@ class PostController extends Controller
         return view('posts.index', [
             'posts' => Post::where("published_at")->latest()->with('tags')->paginate(6),
         ]);
+        // $posts = Post::with('tags')->whereNotNull('published_at')->latest()->paginate(6);
+        // return view('posts.index', compact('posts'));
     }
 
     public function store(Request $request)
@@ -30,7 +32,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        // $post->load('tags');
+        $post->load('tags');
         return view('show', compact('post'));
     }
 }

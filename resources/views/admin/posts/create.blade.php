@@ -12,8 +12,10 @@
                 <x-form.input name="title" />
                 <label>Image</label>
                 <x-form.input name="thumbnail" type="file" />
-                <label>Tag</label>
-                <x-form.input label="Tags (comma separated)" placeholder="news, politics, education" name="tag" />
+                
+                <label>Tags (comma separated)</label>
+                <x-form.input type="text" id="tag" name="tags" />
+
                 <label>Excerpt</label>
                 <x-form.input name="excerpt" />
                 <label>Body</label>

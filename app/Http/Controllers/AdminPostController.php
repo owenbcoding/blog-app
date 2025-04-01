@@ -35,29 +35,31 @@ class AdminPostController extends Controller
      */
     public function store(Request $request)
     {
+        // validates the date from the form
         $validateData = $request->validate([
             'title' => 'required|string|max:255',
             'thumbnail' => 'nullable|image',
             'excerpt' => 'required|string',
             'body' => 'required|string',
-            'tags' => 'nullable|array',
+            'tags' => 'nullable|string',
         ]);
 
-        $post = Post::create($validateData);
-        $post->tags()->sync($request->input('tags', []));
-
         // dd(request()->all());
-
+        
+        // store the thumbnail in the public folder and set user id
         $validateData['user_id'] = auth()->user()->id;
+        
         $validateData['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
-
+        
+        // create the post and sync the tags
         $post = Post::create(Arr::except($validateData, 'tags'));
 
-        if ($validateData['tags'] ?? false) {
-            foreach (explode(',', $validateData['tags']) as $tag) {
-                $post->tags($tag);
-            }
-        }
+        $tags = collect(explode(',', $validateData['tags']))->map(function ($tag) {
+            return Tag::firstOrCreate(['name' => $tag]);
+        });
+
+        $post->tags()->sync($tags);
+        
 
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }

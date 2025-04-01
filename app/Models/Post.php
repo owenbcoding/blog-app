@@ -16,7 +16,7 @@ class Post extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['title', 'body', 'thumbnail', 'slug', 'excerpt', 'published_at'];
+    protected $fillable = ['title', 'body', 'thumbnail', 'slug', 'excerpt', 'published_at', 'user_id'];
 
     public function tag(string $name)
     {
